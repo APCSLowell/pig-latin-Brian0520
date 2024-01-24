@@ -37,25 +37,18 @@ public class PigLatin {
     }
 
 
-public int findqu(String sWord) {
-	for(int i = 0; i < 2; i++)
-		if(sWord.charAt(0) == 'q' && sWord.charAt(1) == 'u'){
-			return 1;
-		}
-	return 0;
-	}
     public String pigLatin(String sWord) {
         //precondition: sWord is a valid String of length greater than 0
         //postcondition: returns the pig latin equivalent of sWord
 	    if(findFirstVowel(sWord) == 1){
 		    return sWord + "way";
 	    }
-	    if(findqu(sWord) == 1){
-		return sWord.substring(2) + sWord.substring(0,2) + "ay";
-	    }
-	    else if(findFirstVowel(sWord) > 1){
-		    return sWord.substring(1) + sWord.charAt(0) + "ay";
+	    else if(sWord.substring(0,2).equals("qu")) {
+		    return sWord.substring(2) + sWord.substring(0,2) + "ay";
 		}
+	    else if(findFirstVowel(sWord) > 1){
+		  return sWord.substring(1) + sWord.charAt(0) + "ay";  
+	    }  
 	    else if(findFirstVowel(sWord) == -1) {
 		    return sWord + "ay";
 	    }
